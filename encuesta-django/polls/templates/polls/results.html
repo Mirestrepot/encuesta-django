@@ -14,10 +14,15 @@
     <header>
         <p>{{ question.question_text }}</p>
     </header>
-    <ul>
+    <!-- <nav class="navbar navbar-default">
+        <div class="container-fluid"></div>
+
+    </nav> -->
+    <ul >
         {% for choice in question.choice_set.all %}
-            <li>{{ choice.choice_text }} &nbsp; | &nbsp; {{ choice.votes }} vote{{ choice.votes|pluralize:"s"}}</li>
+            <li> {{ choice.choice_text }} &nbsp; | &nbsp; {{ choice.votes }} vote{{ choice.votes|pluralize:"s"}} </li>
         {% endfor %}
+    <!-- vote{{ choice.votes|pluralize:'s'}} -->
     </ul>    
     <a href="{% url 'polls:detail' question.id %}">¿Do you want to vote again?</a>
     <a href="{% url 'polls:index' %}">HOME</a>
